@@ -1,0 +1,95 @@
+
+.zendesk-main{
+    position: relative;
+    width: 30.7rem;
+    height: 35.2rem;
+    border: .10rem solid #777777;
+    border-radius: 2px;
+    margin-top: 10.0rem;
+    margin-left: 10.0rem;
+    color: #353535;
+}
+.head{
+    margin: .35rem 1.5rem .35rem;
+    display: flex;
+    justify-content: space-between;
+    p{
+        font-size: .85rem;
+    }
+}
+.main-nav{
+    display: flex;
+    height: 3.0rem;
+    border: solid #BABABA;
+    border-width: .10rem .0rem;
+    justify-content: space-between;
+    margin-top: 0.4rem;
+    .logo-totvs{
+        margin-right: 1.4rem;
+        transition: transform 0.5s ease;
+        
+        &:hover{
+            transform: scale(1.04);
+        }
+    }
+    .btn-aside{
+        display: flex;
+        margin-left: 1.5rem;
+        #toggle-button{
+            width: 5.0rem;
+            height: 2.85rem;
+        }
+    }
+    #toggle-button{
+        background-color: #ffffff;
+        border: none;
+        transition: 100ms;
+        &:hover{
+            background-color: #EDEDED;
+            img{
+                fill: #353535;
+            }
+        }
+    }
+}
+.select{
+
+    justify-content: space-around;
+    border: .1rem solid #BABABA;
+    border-radius: 2px;
+    width: 11.8rem;
+    height: 2.0rem;
+    span{
+        font-size: .85rem;
+        max-width: 90px;
+        max-height: 20px;
+        margin: auto;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        color: #353535;
+        
+    }
+    p{
+        font-size: 12px;
+        margin: auto;
+        color: #353535;
+    }
+}
+.status-color{
+    width: .8rem;
+    height: .8rem;
+    background: #5AF07B;
+    border-radius: 3.0rem;
+    margin-left: .9rem;
+}
+
+section{
+    width: 600px;
+    height: 400px;
+}
+
+.back-img{
+    margin: 3.8rem 3.7rem;
+    
+}

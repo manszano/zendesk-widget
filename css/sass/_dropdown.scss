@@ -1,0 +1,102 @@
+
+.select{
+    display: flex;
+    
+}
+.dropdown{
+    position: relative;
+    margin: auto;
+    margin-left: 7.5rem;
+    button{
+        
+        margin-right: 1.0rem;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        &:hover{
+            background-color: transparent;
+        }
+    }
+}
+.select{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.select-clicked{
+    border: .1rem solid #353535;
+}
+
+.select:hover{
+ background-color: #EBF6ED;
+}
+
+.caret{
+    transition: 0.3s;
+}
+
+
+.caret-rotate{
+    transform: rotate(180deg);
+}
+
+.menu{
+    list-style: none;
+    background: #ffffff;
+    border: .1rem solid #BABABA;
+    border-radius: 0 0 .2rem .2rem;
+    position: absolute;
+    top: 2.42em;
+    width: 11.8rem;
+    height: 22rem;
+    overflow: hidden;
+    overflow-y: scroll;
+    opacity: 0;
+    display: none;
+    z-index: 1;
+    scroll-behavior: smooth;
+    overflow: auto;
+    overflow-x: hidden;
+}
+.menu li {
+    padding: 0.7em 0.5em;
+    font-size: 0.85rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #353535;
+    font-size: 12px;
+    cursor: pointer;
+    &:hover{
+        background-color: #EAEBFF;
+    }
+}
+.active{
+    background-color: 
+    #EAEBFF;
+}
+.menu-open{
+    display: block;
+    opacity: 1;
+}
+.search-style{
+    display: flex;
+    position: sticky;
+    font-size: 12px;
+    top: .8rem;
+    width: 11.8rem;
+    height: 1.2rem;
+    margin: 0.8rem -0.08rem;
+    text-indent: 10px;
+    border: 0.1rem solid #a8a8a8;
+    &:focus{
+        outline: none;
+        border-color: #727272;
+    }
+
+}
+.search-style::placeholder {
+    text-indent: 10px;
+  }

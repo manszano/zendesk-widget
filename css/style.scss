@@ -1,0 +1,19 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+
+  }
+  ::-webkit-scrollbar {
+    width: 0.1px;
+  }
+  
+  @import 'sass/_colors.scss';
+  @import 'sass/_typography.scss';
+  @import 'sass/_main-layout.scss';
+  @import 'sass/dropdown.scss';
+  @import 'sass/call-evt';
+  @import 'sass/dialer';
+  @import 'sass/incall';
+  @import 'sass/login';
