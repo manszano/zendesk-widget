@@ -485,6 +485,10 @@ section {
   background-color: #5AF07B;
   justify-content: space-around;
   align-items: center;
+  cursor: pointer;
+}
+.phone div:hover {
+  background: #43ce61;
 }
 .phone div img {
   width: 0.6rem;
@@ -508,26 +512,60 @@ section {
 
 .pause-icon {
   background-color: #CDCDCD;
+  position: relative;
+  transition: 0.25s;
 }
 .pause-icon:hover {
   background-color: #BABABA;
 }
+.pause-icon:hover::after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #292928;
+  font-size: 12px;
+  border-radius: 2px;
+  color: white;
+  top: 2.3rem;
+  font-weight: 400;
+  height: 1.5rem;
+  width: 4.5rem;
+  position: absolute;
+  content: "Stop";
+}
 
 .end-icon {
   background-color: #BA0707;
+  position: relative;
 }
 .end-icon:hover {
   background-color: #a30404;
 }
+.end-icon:hover::after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #292928;
+  font-size: 12px;
+  border-radius: 2px;
+  color: white;
+  top: 2.3rem;
+  font-weight: 400;
+  height: 1.5rem;
+  width: 4.5rem;
+  position: absolute;
+  content: "End";
+}
 
 .incall-main {
   display: flex;
+  position: relative;
 }
-.incall-main .datas p {
+.incall-main:hover .datas p {
   transition: 0.25s ease;
   cursor: pointer;
 }
-.incall-main .datas p:hover {
+.incall-main:hover .datas p:hover {
   background-color: #e9e9e9;
 }
 .incall-main p {
