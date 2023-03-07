@@ -35,6 +35,14 @@
     .btn-aside{
         display: flex;
         margin-left: 1.5rem;
+        *{
+            &:focus{
+                outline: none;
+            }
+        }
+        &:focus{
+            outline: none;
+        }
         #toggle-button{
             width: 5.0rem;
             height: 2.85rem;

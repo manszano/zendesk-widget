@@ -48,6 +48,12 @@
   display: flex;
   margin-left: 1.5rem;
 }
+.main-nav .btn-aside *:focus {
+  outline: none;
+}
+.main-nav .btn-aside:focus {
+  outline: none;
+}
 .main-nav .btn-aside #toggle-button {
   width: 5rem;
   height: 2.85rem;

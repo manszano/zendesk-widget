@@ -1,1 +1,1 @@
-a
+Tirei os metodos da lista de status pois aind

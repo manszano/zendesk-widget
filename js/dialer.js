@@ -15,7 +15,6 @@ function addToDisplay(num) {
     var value = display.value;
     display.value = value.substring(0, value.length - 1);
   }
-  
   document.addEventListener("keydown", function(event) {
     if (document.activeElement === document.getElementById("display")) {
         var key = event.key;
@@ -26,4 +25,6 @@ function addToDisplay(num) {
         }
       }
     });
+  
+
 
