@@ -447,9 +447,13 @@ section {
 
 .incall-head {
   padding: 1rem;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
   display: flex;
   height: 3.5rem;
   border-bottom: 0.1rem solid #989898;
+  z-index: 1;
   align-items: center;
 }
 .incall-head h3 {
@@ -560,6 +564,7 @@ section {
 .incall-main {
   display: flex;
   position: relative;
+  overflow: scroll;
 }
 .incall-main:hover .datas p {
   transition: 0.25s ease;

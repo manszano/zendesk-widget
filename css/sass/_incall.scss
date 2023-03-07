@@ -10,9 +10,13 @@
 }
 .incall-head{
     padding: 1rem;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
     display: flex;
     height: 3.5rem;
     border-bottom: 0.1rem solid #989898;
+    z-index: 1;
     h3{
         font-size: 12px;
         margin-left: 0.4rem;
@@ -121,6 +125,7 @@
 .incall-main{
     display: flex;
     position: relative;
+    overflow: scroll;   
     &:hover
     .datas{
         p{
