@@ -15,7 +15,7 @@
   position: relative;
   width: 30.7rem;
   height: 35.2rem;
-  border: 0.1rem solid #777777;
+  border: 0.1rem solid #5c5c5c;
   border-radius: 2px;
   margin-top: 10rem;
   margin-left: 10rem;
@@ -41,7 +41,7 @@
   z-index: 3;
   display: flex;
   height: 3rem;
-  border: solid #BABABA;
+  border: solid #8c8c8c;
   border-width: 0.1rem 0rem;
   justify-content: space-between;
   margin-top: 0.4rem;
@@ -81,7 +81,7 @@
 
 .select {
   justify-content: space-around;
-  border: 0.1rem solid #BABABA;
+  border: 0.1rem solid #989898;
   border-radius: 2px;
   width: 11.8rem;
   height: 2rem;
@@ -164,7 +164,7 @@ section {
 .menu {
   list-style: none;
   background: #ffffff;
-  border: 0.1rem solid #BABABA;
+  border: 0.1rem solid #989898;
   border-radius: 0 0 0.2rem 0.2rem;
   position: absolute;
   top: 2.42em;
@@ -213,7 +213,7 @@ section {
   height: 1.2rem;
   margin: 0.8rem -0.08rem;
   text-indent: 10px;
-  border: 0.1rem solid #a8a8a8;
+  border: 0.1rem solid #b8b7b7;
 }
 .search-style:focus {
   outline: none;
@@ -362,7 +362,7 @@ section {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  border: 0.1rem solid #BABABA;
+  border: 0.1rem solid #989898;
   border-radius: 2px;
   margin-top: 0.45rem;
   z-index: 1000;
@@ -375,7 +375,7 @@ section {
   margin-bottom: 10px;
   background-color: #ffffff;
   font-size: 12px;
-  border: 0.1rem solid #BABABA;
+  border: 0.1rem solid #b8b7b7;
   border-radius: 2px;
   color: #353535;
   text-align: center;
@@ -449,7 +449,7 @@ section {
 .incall {
   z-index: 1;
   margin: 1px 1px;
-  border: 0.1rem solid #BABABA;
+  border: 0.1rem solid #989898;
   width: 29rem;
   height: 16rem;
   border-radius: 2px;
@@ -468,7 +468,7 @@ section {
   background-color: #fff;
   display: flex;
   height: 3.5rem;
-  border-bottom: 0.1rem solid #989898;
+  border-bottom: 0.1rem solid #b8b7b7;
   align-items: center;
 }
 .incall-head h3 {
