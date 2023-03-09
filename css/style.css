@@ -30,6 +30,7 @@
 }
 
 .main-nav {
+  z-index: 3;
   display: flex;
   height: 3rem;
   border: solid #BABABA;
@@ -192,6 +193,7 @@ section {
 .menu-open {
   display: block;
   opacity: 1;
+  z-index: 3;
 }
 
 .search-style {
@@ -311,7 +313,7 @@ section {
 }
 
 .titles {
-  z-index: -1;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -320,7 +322,7 @@ section {
 }
 
 .datas {
-  z-index: -1;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -437,6 +439,7 @@ section {
 }
 
 .incall {
+  z-index: 1;
   margin: 1px 1px;
   border: 0.1rem solid #BABABA;
   width: 29rem;
@@ -450,6 +453,7 @@ section {
 }
 
 .incall-head {
+  z-index: 2;
   padding: 1rem;
   position: sticky;
   top: 0;

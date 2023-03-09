@@ -1,4 +1,5 @@
 .incall{
+    z-index: 1;
     margin: 1px 1px;
     border: 0.1rem solid #BABABA;
     width: 29rem;
@@ -11,6 +12,7 @@
     left: 0.7rem;
 }
 .incall-head{
+    z-index: 2;
     padding: 1rem;
     position: sticky;
     top: 0;
