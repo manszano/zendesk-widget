@@ -89,6 +89,7 @@ justify-content: space-around;
     }
 }
 .titles{
+    z-index: -1;
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -96,6 +97,7 @@ justify-content: space-around;
     color: #616161 ;
 }
 .datas{
+    z-index: -1;
     display: flex;
     flex-direction: column;
     list-style: none;
