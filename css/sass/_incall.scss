@@ -63,7 +63,7 @@
 }
 .icons{
     display: flex;
-    margin-left: 17.8rem;
+    margin-left: 17.6rem;
 
     div{
         display: flex;
@@ -85,6 +85,7 @@
     &:hover{
         background-color: #BABABA;
         &::after{
+            
             display: flex;
             align-items: center;
             justify-content: center;
