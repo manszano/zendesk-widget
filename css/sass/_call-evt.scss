@@ -3,7 +3,7 @@
     border-radius: 2px;
     width: 20rem;
     height: 11rem;
-    margin: 17rem 6rem;
+    margin: 18rem 9.8rem;
     display: none;
     background-color: #FCFCFC;
     overflow: hidden;
@@ -16,7 +16,7 @@
   }
 @keyframes slide-in {
     from {
-      transform: translateX(100%);
+      transform: translateX(40%);
     }
     to {
       transform: translateX(0%);
