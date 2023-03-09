@@ -455,7 +455,6 @@ section {
   display: flex;
   height: 3.5rem;
   border-bottom: 0.1rem solid #989898;
-  z-index: 1;
   align-items: center;
 }
 .incall-head h3 {
