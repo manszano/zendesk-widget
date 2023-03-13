@@ -1,0 +1,37 @@
+#função de login
+#Deverá ser realizado com uma consulta de testes
+EG: * https://sncfinesse1.totvs.com.br:8445/finesse/api/User/{userid} Caso retorne as informações do usuario OK, caro contrário Erro ao logar
+
+#Alterar status do usuario baseado na lista
+Request para lista: https://sncfinesse1.totvs.com.br/finesse/api/User/61615673/ReasonCodes?category=NOT_READY || params auth basic
+                    https://sncfinesse1.totvs.com.br/finesse/api/User/61615673/ReasonCodes?category=LOGOUT || params auth basic
+
+
+
+#Altera status do agente para notready
+<User>
+   <state>NOT_READY</state>
+   <reasonCodeId>7</reasonCodeId>
+</User>
+#Altera status do agente para Ready
+<User>
+   <state>READY</state>
+</User>
+
+#Reason code EG:
+<ReasonCode>
+        <uri>/finesse/api/ReasonCode/7</uri>
+        <id>7</id> VALOR A SER USADO PARA O PARAMETRO reasonCodeId
+        <category>NOT_READY</category>
+        <code>6</code>
+        <label>Pausa_Atividades</label>
+        <forAll>true</forAll>
+        <systemCode>false</systemCode>
+</ReasonCode>
+
+
+
+#função de Logout
+<User>
+    <state>LOGOUT</state>
+</User>
