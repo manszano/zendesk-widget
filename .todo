@@ -7,18 +7,27 @@ Request para lista: https://sncfinesse1.totvs.com.br/finesse/api/User/61615673/R
                     https://sncfinesse1.totvs.com.br/finesse/api/User/61615673/ReasonCodes?category=LOGOUT || params auth basic
 
 
+	
 
-#Altera status do agente para notready
+#Realizar ligações: https://finesse1.xyz.com/finesse/api/User/61615673/Dialogs
+<Dialog>
+   <requestedAction>MAKE_CALL</requestedAction>
+   <fromAddress>5999</fromAddress>
+   <toAddress>0061994450916</toAddress>
+</Dialog>
+
+
+#Altera status do agente para notready: https://sncfinesse1.totvs.com.br/finesse/api/User/61615673
 <User>
    <state>NOT_READY</state>
    <reasonCodeId>7</reasonCodeId>
 </User>
-#Altera status do agente para Ready
+#Altera status do agente para Ready: https://sncfinesse1.totvs.com.br/finesse/api/User/61615673
 <User>
    <state>READY</state>
 </User>
 
-#Reason code EG:
+#Reason code EG: https://sncfinesse1.totvs.com.br/finesse/api/User/61615673/ReasonCodes?category=NOT_READY
 <ReasonCode>
         <uri>/finesse/api/ReasonCode/7</uri>
         <id>7</id> VALOR A SER USADO PARA O PARAMETRO reasonCodeId
@@ -31,7 +40,7 @@ Request para lista: https://sncfinesse1.totvs.com.br/finesse/api/User/61615673/R
 
 
 
-#função de Logout
+#função de Logout: https://sncfinesse1.totvs.com.br/finesse/api/User/61615673
 <User>
     <state>LOGOUT</state>
 </User>
