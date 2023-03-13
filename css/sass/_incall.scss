@@ -1,7 +1,7 @@
 .incall{
     z-index: 1;
     margin: 1px 1px;
-    border: 0.1rem solid #989898;
+    border: 01px solid #989898;
     width: 29rem;
     height: 16rem;
     border-radius: 2px;
@@ -10,7 +10,17 @@
     position: absolute;
     top: 5.5rem;
     left: 0.7rem;
+    h3{
+        &:hover{
+
+        }
+        
+        &:focus{
+
+        }
+    }
 }
+
 .incall-head{
     z-index: 2;
     padding: 1rem;
@@ -19,7 +29,7 @@
     background-color: #fff;
     display: flex;
     height: 3.5rem;
-    border-bottom: 0.1rem solid #b8b7b7;
+    border-bottom: 01px solid #b8b7b7;
     h3{
         font-size: 12px;
         margin-left: 0.4rem;

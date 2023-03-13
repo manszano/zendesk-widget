@@ -1,5 +1,5 @@
 .call-event{
-    border: .1rem solid #989898;
+    border: 1px solid #989898;
     border-radius: 2px;
     width: 20rem;
     height: 11rem;
@@ -24,7 +24,7 @@
   }
 .head-info{
 display: flex;
-border-bottom: 0.1rem solid #b8b7b7;
+border-bottom: 01px solid #b8b7b7;
 height: 35%;
 display: flex;
 font-size: 12px;
@@ -39,7 +39,7 @@ justify-content: space-around;
 .phone-icon{
     display: flex;
     background-color: #5AF07B;
-    border: 0.1rem solid #1E7B32;
+    border: 01px solid #1E7B32;
     width: 2rem;
     height: 2rem;
     margin: auto 0;
@@ -68,7 +68,7 @@ justify-content: space-around;
     height: 2rem;
     border-radius: 10rem;
     background-color: #5AF07B;
-    border: 0.1rem solid #1E7B32;
+    border: 01px solid #1E7B32;
     color: #1E7B32;
     font-size: 12px;
     cursor: pointer;
@@ -97,7 +97,8 @@ justify-content: space-around;
     color: #616161 ;
 }
 .datas{
-    z-index: 1;
+    z-index: 
+    1;
     display: flex;
     flex-direction: column;
     list-style: none;

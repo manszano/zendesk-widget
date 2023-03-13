@@ -26,7 +26,7 @@
 }
 
 .select-clicked{
-    border: .1rem solid #353535;
+    border: 1px solid #353535;
 }
 
 .select:hover{
@@ -45,7 +45,7 @@
 .menu{
     list-style: none;
     background: #ffffff;
-    border: .1rem solid #989898;
+    border: 1px solid #989898;
     border-radius: 0 0 .2rem .2rem;
     position: absolute;
     top: 2.42em;
@@ -91,7 +91,7 @@
     height: 1.2rem;
     margin: 0.8rem -0.08rem;
     text-indent: 10px;
-    border: 0.1rem solid #b8b7b7;
+    border: 01px solid #b8b7b7;
     &:focus{
         outline: none;
         border-color: #727272;

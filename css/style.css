@@ -15,7 +15,7 @@
   position: relative;
   width: 30.7rem;
   height: 35.2rem;
-  border: 0.1rem solid #5c5c5c;
+  border: 1px solid #5c5c5c;
   border-radius: 2px;
   margin-top: 10rem;
   margin-left: 10rem;
@@ -42,7 +42,7 @@
   display: flex;
   height: 3rem;
   border: solid #8c8c8c;
-  border-width: 0.1rem 0rem;
+  border-width: 1px 0;
   justify-content: space-between;
   margin-top: 0.4rem;
 }
@@ -81,7 +81,7 @@
 
 .select {
   justify-content: space-around;
-  border: 0.1rem solid #989898;
+  border: 1px solid #989898;
   border-radius: 2px;
   width: 11.8rem;
   height: 2rem;
@@ -146,7 +146,7 @@ section {
 }
 
 .select-clicked {
-  border: 0.1rem solid #353535;
+  border: 1px solid #353535;
 }
 
 .select:hover {
@@ -164,7 +164,7 @@ section {
 .menu {
   list-style: none;
   background: #ffffff;
-  border: 0.1rem solid #989898;
+  border: 1px solid #989898;
   border-radius: 0 0 0.2rem 0.2rem;
   position: absolute;
   top: 2.42em;
@@ -213,7 +213,7 @@ section {
   height: 1.2rem;
   margin: 0.8rem -0.08rem;
   text-indent: 10px;
-  border: 0.1rem solid #b8b7b7;
+  border: 1px solid #b8b7b7;
 }
 .search-style:focus {
   outline: none;
@@ -229,7 +229,7 @@ section {
 }
 
 .call-event {
-  border: 0.1rem solid #989898;
+  border: 1px solid #989898;
   border-radius: 2px;
   width: 20rem;
   height: 11rem;
@@ -255,7 +255,7 @@ section {
 }
 .head-info {
   display: flex;
-  border-bottom: 0.1rem solid #b8b7b7;
+  border-bottom: 1px solid #b8b7b7;
   height: 35%;
   display: flex;
   font-size: 12px;
@@ -268,7 +268,7 @@ section {
 .phone-icon {
   display: flex;
   background-color: #5AF07B;
-  border: 0.1rem solid #1E7B32;
+  border: 1px solid #1E7B32;
   width: 2rem;
   height: 2rem;
   margin: auto 0;
@@ -299,7 +299,7 @@ section {
   height: 2rem;
   border-radius: 10rem;
   background-color: #5AF07B;
-  border: 0.1rem solid #1E7B32;
+  border: 1px solid #1E7B32;
   color: #1E7B32;
   font-size: 12px;
   cursor: pointer;
@@ -362,7 +362,7 @@ section {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  border: 0.1rem solid #989898;
+  border: 1px solid #989898;
   border-radius: 2px;
   margin-top: 0.45rem;
   z-index: 1000;
@@ -375,7 +375,7 @@ section {
   margin-bottom: 10px;
   background-color: #ffffff;
   font-size: 12px;
-  border: 0.1rem solid #b8b7b7;
+  border: 1px solid #b8b7b7;
   border-radius: 2px;
   color: #353535;
   text-align: center;
@@ -411,7 +411,7 @@ section {
   cursor: pointer;
   background-color: #ebebeb;
   color: #353535;
-  border: 0.1rem solid #BABABA;
+  border: 1px solid #BABABA;
   border-radius: 2px;
   transition: 0.2s ease;
 }
@@ -429,7 +429,7 @@ section {
   cursor: pointer;
   background-color: #45d164;
   color: #ffffff;
-  border: 0.1rem solid #BABABA;
+  border: 1px solid #BABABA;
   border-radius: 2px;
   height: 2rem;
   transition: 0.2s ease;
@@ -449,7 +449,7 @@ section {
 .incall {
   z-index: 1;
   margin: 1px 1px;
-  border: 0.1rem solid #989898;
+  border: 1px solid #989898;
   width: 29rem;
   height: 16rem;
   border-radius: 2px;
@@ -468,7 +468,7 @@ section {
   background-color: #fff;
   display: flex;
   height: 3.5rem;
-  border-bottom: 0.1rem solid #b8b7b7;
+  border-bottom: 1px solid #b8b7b7;
   align-items: center;
 }
 .incall-head h3 {
@@ -632,7 +632,7 @@ section {
 }
 .login-form input {
   height: 2.5rem;
-  border: 0.1rem solid #BABABA;
+  border: 1px solid #BABABA;
   border-radius: 2px;
   text-indent: 7px;
   width: 23rem;
@@ -655,7 +655,7 @@ section {
 }
 .login-form button:hover {
   background-color: #ffffff;
-  border: 0.1rem solid #000000;
+  border: 1px solid #000000;
   color: #000000;
 }
 
