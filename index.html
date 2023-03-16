@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-br">
    <head>
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="referrer" content="same-origin">
       <title>Document</title>
 
       <!--FONTE NOTO-SANS-->
@@ -17,7 +18,7 @@
     <!--COMEÇO-->
       <main class="zendesk-main">
         <!--LOGIN LOGIN (NÃO USE FORM) LOGIN LOGIN-->
-         <div class="login">
+         <form class="login" onsubmit="event.preventDefault();">
             <div class="login-head">
                <p>Log In</p>
                <img src="svg/totvs-full-logo.svg" alt="">
@@ -35,11 +36,11 @@
                   <p>Ramal</p>
                   <input type="tel" class="ramal"placeholder="Ramal">
                </div>
-               <button class="login-btn">Log In</button>
+               <button class="login-btn" >Log In</button>
             </div>
             <div class="right-foot-creep"></div>
             <img src="svg/totvs-black-logo.svg" alt="" class="griddy">
-         </div>
+         </form>
          <!---------------------------------------------------------------->
          <header class="head">
             <p>Finesse</p>
@@ -174,6 +175,7 @@
 
       <button class="btn">yes sir</button>
 
+      <script src="js/jquery.js"></script>
       <script src="js/dropdown.js"></script>
       <script src="js/search.js"></script>
       <script src="js/dialer.js"></script>
