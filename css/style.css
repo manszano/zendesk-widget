@@ -11,7 +11,7 @@
 }
 
 .zendesk-main {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   position: relative;
   width: 30.7rem;
   height: 35.2rem;
@@ -28,7 +28,7 @@
 
 .head {
   margin: 0.35rem 1.5rem 0.35rem;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   display: flex;
   justify-content: space-between;
 }
@@ -459,7 +459,6 @@ section {
   top: 5.5rem;
   left: 0.7rem;
 }
-
 .incall-head {
   z-index: 2;
   padding: 1rem;

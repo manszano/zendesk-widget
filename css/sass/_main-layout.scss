@@ -1,6 +1,6 @@
 
 .zendesk-main{
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     position: relative;
     width: 30.7rem;
     height: 35.2rem;
@@ -16,9 +16,10 @@
 }
 .head{
     margin: .35rem 1.5rem .35rem;
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     display: flex;
     justify-content: space-between;
+    
     p{
         font-size: .85rem;
     }
@@ -31,7 +32,7 @@
     border: solid #8c8c8c;
     border-width: 1px 0;
     justify-content: space-between;
-    margin-top: 0.4rem;
+    margin-top: 0.4rem; 
     .logo-totvs{
         margin-right: 1.4rem;
         transition: transform 0.5s ease;
