@@ -7,28 +7,50 @@ loginButton.addEventListener('click', function () {
   let username = document.querySelector('.user').value;
   let password = document.querySelector('.password').value;
 
-  let uri = "https://sncfinesse1.totvs.com.br/finesse/api/User/" + username
-  saveCredentials(username, password);
-
-    $.ajax({
-    url: uri,
-    credentials:"include",
-    type: 'dataType',
-    /* etc */
-    success: function(jsondata){
-      console.log(jsondata)
+  response = $.ajax({
+      url: 'https://sncfinesse1.totvs.com.br/finesse/api/User/' + username,
+    type: "GET",
+    headers: {
+      "Authorization": "Basic " + btoa(username + ":" + password)
+    },
+    success: function(data) {
+      console.log("Request successful!");
+      console.log(data.responseText);
+    },
+    error: function(xhr, status, error) {
+      console.log("Request failed.");
+      console.log(xhr.status);
+      console.log(xhr.getResponseHeader("Content-Type"));     
     }
- })
+  });
+  
+  getXML(response.responseXML);
 
-  // fetch("https://sncfinesse1.totvs.com.br/finesse/api/User/" + username, {
-  //   method: "GET", headers: {'Access-Control-Allow-Origin': '*'}, credentials: "include"
-  // })
-  //   .then(data => console.log(data));
-
-
+  ///////////////////////////////
+  function processXML(xmlString) {
+    const firstParser = new DOMParser();
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+    const loginId = xmlDoc.getElementsByTagName("loginId")[0];
+  
+    if (loginId) {
+      console.log("Primeiro nome encontrado:", loginId.textContent);
+      // showdashboard
+      login.classList.toggle(".close")
+    } else {
+      console.log("Erro login api")
+    }
+  }
+  
+  function getXML(url) {
+    
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState === 4 && this.status === 200) {
+        processXML(this.responseText);
+      }
+    };
+    xhttp.open("GET", url, true);
+    xhttp.send();
+  }
 });
-
-function
-  saveCredentials(userName, password) {
-  localStorage.setItem('credentials', 'basic ' + userName + ':' + password);
-}
