@@ -79,12 +79,10 @@ loginButton.addEventListener("click", function () {
                 option.addEventListener('click', () => {
                     selected.innerText = option.innerText;
         
-                    select.classList.remove('select-clicked');
-        
-                    caret.classList.remove('caret-rotate');
-                    
+                    select.classList.remove('select-clicked');       
+                    caret.classList.remove('caret-rotate');                 
                     menu.classList.remove('menu-open');
-        
+                  
                     options.forEach(option => {
                          option.classList.remove('active');
                     });
