@@ -33,6 +33,7 @@ loginButton.addEventListener("click", function() {
 					// Adicionar item "Ready" no início da lista
 					const readyItem = document.createElement("li");
 					readyItem.textContent = "Ready";
+					readyItem.setAttribute("data-id", "ready");
 					menuList.appendChild(readyItem);
 
 					const reasonCodes = data.getElementsByTagName("ReasonCode");
@@ -44,7 +45,7 @@ loginButton.addEventListener("click", function() {
 						const label = reasonCode.getElementsByTagName("label")[0].textContent;
 						const listItem = document.createElement("li");
 						listItem.textContent = label;
-						listItem.setAttribute("data-id", id); // Adicione o atributo 'data-id'
+						listItem.setAttribute("data-id", id);
 						menuList.appendChild(listItem);
 
 						if (id === userReasonCodeId) {
@@ -79,53 +80,51 @@ loginButton.addEventListener("click", function() {
 						options.forEach(option => {
 							option.addEventListener('click', () => {
 								selected.innerText = option.innerText;
+								const optionId = option.getAttribute("data-id");
 
 								select.classList.remove('select-clicked');
 								caret.classList.remove('caret-rotate');
 								menu.classList.remove('menu-open');
-
 								options.forEach(option => {
 									option.classList.remove('active');
 								});
 								option.classList.add('active');
 
-								//Finesse
-								if (option.innerText === "Ready") {
+								if (optionId === "ready") {
 									$.ajax({
 										url: "https://sncfinesse1.totvs.com.br/finesse/api/User/" + username,
-										method: "PUT",
-										contentType: "application/xml",
-										data: "<User><state>READY</state></User>",
+										type: "PUT",
 										headers: {
 											"Authorization": "Basic " + btoa(username + ":" + password),
+											"Content-Type": "application/xml"
 										},
+										data: `<User><state>READY</state></User>`,
 										success: function() {
-											console.log("Status updated READY.");
+											console.log("Status changed to READY");
 										},
 										error: function(xhr, status, error) {
-											console.log("Status update to Ready failed.");
+											console.log("Failed to change status to READY");
 											console.log(xhr.status);
 											console.log(xhr.getResponseHeader("Content-Type"));
-										},
+										}
 									});
 								} else {
-									const reasonCodeId = option.getAttribute("data-id");
 									$.ajax({
 										url: "https://sncfinesse1.totvs.com.br/finesse/api/User/" + username,
-										method: "PUT",
-										contentType: "application/xml",
-										data: `<User><state>NOT_READY</state><reasonCodeId>${reasonCodeId}</reasonCodeId></User>`,
+										type: "PUT",
 										headers: {
 											"Authorization": "Basic " + btoa(username + ":" + password),
+											"Content-Type": "application/xml"
 										},
+										data: `<User><state>NOT_READY</state><reasonCodeId>${optionId}</reasonCodeId></User>`,
 										success: function() {
-											console.log("Status updated NOT_READY");
+											console.log(`Status changed to NOT_READY with reasonCodeId: ${optionId}`);
 										},
 										error: function(xhr, status, error) {
-											console.log("Status update ERROR");
+											console.log(`Failed to change status to NOT_READY with reasonCodeId: ${optionId}`);
 											console.log(xhr.status);
 											console.log(xhr.getResponseHeader("Content-Type"));
-										},
+										}
 									});
 								}
 							});
