@@ -2,6 +2,23 @@ const loginButton = document.querySelector('.login-btn');
 const login = document.querySelector('.login');
 const selected = document.querySelector('.selected');
 const dropdown = document.querySelectorAll('.dropdown');
+const timer = document.querySelector('#timer');
+
+// Adicione uma nova variável para armazenar o tempo de início do status atual
+let statusStartTime;
+
+// Atualize a exibição do tempo a cada segundo
+setInterval(() => {
+	if (statusStartTime) {
+		// Calcule a duração do status atual
+		const duration = Math.floor((new Date() - statusStartTime) / 1000);
+		const minutes = Math.floor(duration / 60);
+		const seconds = duration % 60;
+		timer.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+	} else {
+		timer.textContent = '0:00';
+	}
+}, 1000);
 
 loginButton.addEventListener("click", function() {
 	let username = document.querySelector(".user").value;
@@ -9,11 +26,13 @@ loginButton.addEventListener("click", function() {
 
 	$.get({
 		url: "https://sncfinesse1.totvs.com.br/finesse/api/User/" + username,
-
 		headers: {
 			"Authorization": "Basic " + btoa(username + ":" + password),
 		},
 		success: function(data) {
+			// Obtenha o tempo de início do status atual
+			statusStartTime = new Date(data.getElementsByTagName("stateChangeTime")[0].textContent);
+
 			const userState = data.getElementsByTagName("state")[0].textContent;
 			const userReasonCodeId = data.getElementsByTagName("reasonCodeId")[0].textContent;
 
@@ -21,7 +40,6 @@ loginButton.addEventListener("click", function() {
 			login.classList.toggle("close");
 			$.get({
 				url: "https://sncfinesse1.totvs.com.br/finesse/api/User/" + username + "/ReasonCodes?category=NOT_READY",
-
 				headers: {
 					"Authorization": "Basic " + btoa(username + ":" + password),
 				},
@@ -64,7 +82,6 @@ loginButton.addEventListener("click", function() {
 
 					// Event listeners dentro do callback de sucesso da API
 					const options = menuList.querySelectorAll("li");
-
 					dropdown.forEach(dropdown => {
 						const select = dropdown.querySelector('.select');
 						const caret = dropdown.querySelector('.caret');
@@ -79,6 +96,9 @@ loginButton.addEventListener("click", function() {
 
 						options.forEach(option => {
 							option.addEventListener('click', () => {
+								// Reset o tempo de início do status quando o agente trocar de status
+								statusStartTime = new Date();
+
 								selected.innerText = option.innerText;
 								const optionId = option.getAttribute("data-id");
 
