@@ -4,8 +4,53 @@ const selected = document.querySelector('.selected');
 const dropdown = document.querySelectorAll('.dropdown');
 const timer = document.querySelector('#timer');
 
-// Adicione uma nova variável para armazenar o tempo de início do status atual
 let statusStartTime;
+let statusCheckInterval;
+let lastUserState;
+let lastUserReasonCodeId;
+
+// Adicione uma nova função para atualizar o status do usuário e o tempo
+function updateStatus(data) {
+	// Obtenha o tempo de início do status atual
+	statusStartTime = new Date(data.getElementsByTagName("stateChangeTime")[0].textContent);
+
+	const userState = data.getElementsByTagName("state")[0].textContent;
+	const userReasonCodeId = data.getElementsByTagName("reasonCodeId")[0].textContent;
+
+	if (userState !== lastUserState || userReasonCodeId !== lastUserReasonCodeId) {
+		const menuList = document.querySelector(".menu-list");
+		const options = menuList.querySelectorAll("li");
+		let selectedIndex = -1;
+
+		for (let i = 0; i < options.length; i++) {
+			const option = options[i];
+			const id = option.getAttribute("data-id");
+
+			if (id === userReasonCodeId) {
+				selectedIndex = i;
+				option.classList.add("active");
+				selected.innerText = option.innerText;
+			} else {
+				option.classList.remove("active");
+			}
+		}
+
+		if (userState === "READY") {
+			const readyItem = menuList.querySelector('[data-id="ready"]');
+			readyItem.classList.add("active");
+			selected.innerText = "Ready";
+		} else if (selectedIndex === -1) {
+			selected.innerText = "RCODE NONE";
+		}
+
+		// Reset o tempo de início do status quando o agente trocar de status
+		statusStartTime = new Date();
+
+		// Atualize as informações armazenadas
+		lastUserState = userState;
+		lastUserReasonCodeId = userReasonCodeId;
+	}
+}
 
 // Atualize a exibição do tempo a cada segundo
 setInterval(() => {
@@ -30,21 +75,36 @@ loginButton.addEventListener("click", function() {
 			"Authorization": "Basic " + btoa(username + ":" + password),
 		},
 		success: function(data) {
-			// Obtenha o tempo de início do status atual
-			statusStartTime = new Date(data.getElementsByTagName("stateChangeTime")[0].textContent);
-
-			const userState = data.getElementsByTagName("state")[0].textContent;
-			const userReasonCodeId = data.getElementsByTagName("reasonCodeId")[0].textContent;
+			updateStatus(data);
 
 			console.log("Request sucess.");
 			login.classList.toggle("close");
+
+			statusCheckInterval = setInterval(() => {
+				$.get({
+					url: "https://sncfinesse1.totvs.com.br/finesse/api/User/" + username,
+					headers: {
+						"Authorization": "Basic " + btoa(username + ":" + password),
+					},
+					success: function(data) {
+						updateStatus(data);
+					},
+					error: function(xhr, status, error) {
+						console.log("Status Check failed.");
+						console.log(xhr.status);
+						console.log(xhr.getResponseHeader("Content-Type"));
+					},
+					complete: function() {
+						console.log("STATUS CHECK DONE");
+					},
+				});
+			}, 5000);
 			$.get({
 				url: "https://sncfinesse1.totvs.com.br/finesse/api/User/" + username + "/ReasonCodes?category=NOT_READY",
 				headers: {
 					"Authorization": "Basic " + btoa(username + ":" + password),
 				},
 				success: function(data) {
-					console.log("Status Request successful!");
 					const menuList = document.querySelector(".menu-list");
 					menuList.innerHTML = "";
 
@@ -66,14 +126,14 @@ loginButton.addEventListener("click", function() {
 						listItem.setAttribute("data-id", id);
 						menuList.appendChild(listItem);
 
-						if (id === userReasonCodeId) {
+						if (id === lastUserReasonCodeId) {
 							selectedIndex = i;
 							listItem.classList.add("active");
 							selected.innerText = label;
 						}
 					}
 
-					if (userState === "READY") {
+					if (lastUserState === "READY") {
 						readyItem.classList.add("active");
 						selected.innerText = "Ready";
 					} else if (selectedIndex === -1) {
@@ -82,6 +142,7 @@ loginButton.addEventListener("click", function() {
 
 					// Event listeners dentro do callback de sucesso da API
 					const options = menuList.querySelectorAll("li");
+
 					dropdown.forEach(dropdown => {
 						const select = dropdown.querySelector('.select');
 						const caret = dropdown.querySelector('.caret');
