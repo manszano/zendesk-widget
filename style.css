@@ -105,7 +105,8 @@
   height: 0.8rem;
   background: #5AF07B;
   border-radius: 3rem;
-  margin-left: 0.9rem;
+  margin-left: 0.5rem;
+  margin-right: 0.2rem;
 }
 
 section {
@@ -669,5 +670,5 @@ section {
 }
 
 .close {
-  display: none;
+  display: none !important;
 }/*# sourceMappingURL=style.css.map */
