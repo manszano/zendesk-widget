@@ -11,47 +11,63 @@ let lastUserReasonCodeId;
 
 // Adicione uma nova função para atualizar o status do usuário e o tempo
 function updateStatus(data) {
-	// Obtenha o tempo de início do status atual
-	statusStartTime = new Date(data.getElementsByTagName("stateChangeTime")[0].textContent);
+  // Obtenha o tempo de início do status atual
+  statusStartTime = new Date(data.getElementsByTagName("stateChangeTime")[0].textContent);
 
-	const userState = data.getElementsByTagName("state")[0].textContent;
-	const userReasonCodeId = data.getElementsByTagName("reasonCodeId")[0].textContent;
+  const userState = data.getElementsByTagName("state")[0].textContent;
+  const userReasonCodeIdElement = data.getElementsByTagName("reasonCodeId")[0];
+  const userReasonCodeId = userReasonCodeIdElement ? userReasonCodeIdElement.textContent : null;
 
-	if (userState !== lastUserState || userReasonCodeId !== lastUserReasonCodeId) {
-		const menuList = document.querySelector(".menu-list");
-		const options = menuList.querySelectorAll("li");
-		let selectedIndex = -1;
+  if (userState !== lastUserState || userReasonCodeId !== lastUserReasonCodeId) {
+    const menuList = document.querySelector(".menu-list");
+    const options = menuList.querySelectorAll("li");
+    let selectedIndex = -1;
 
-		for (let i = 0; i < options.length; i++) {
-			const option = options[i];
-			const id = option.getAttribute("data-id");
+    for (let i = 0; i < options.length; i++) {
+      const option = options[i];
+      const id = option.getAttribute("data-id");
 
-			if (id === userReasonCodeId) {
-				selectedIndex = i;
-				option.classList.add("active");
-				selected.innerText = option.innerText;
-			} else {
-				option.classList.remove("active");
-			}
-		}
+      if (id === userReasonCodeId) {
+        selectedIndex = i;
+        option.classList.add("active");
+        selected.innerText = option.innerText;
+      } else {
+        option.classList.remove("active");
+      }
+    }
 
-		if (userState === "READY") {
-			const readyItem = menuList.querySelector('[data-id="ready"]');
-			readyItem.classList.add("active");
-			selected.innerText = "Ready";
-		} else if (selectedIndex === -1) {
-			selected.innerText = "RCODE NONE";
-		}
+    if (userState === "READY") {
+      const readyItem = menuList.querySelector('[data-id="ready"]');
+      if (readyItem) {
+        readyItem.classList.add("active");
+      }
+      selected.innerText = "Ready";
+      document.querySelector('.status-color').style.backgroundColor = '#5AF07B'; // Definir a cor de fundo para READY
+    } else if (userState === "NOT_READY") {
+      document.querySelector('.status-color').style.backgroundColor = '#BA0707'; // Definir a cor de fundo para NOT_READY
+    } else if (userState === "LOGOUT") {
+      // Limpe a lista de códigos de motivo
+      menuList.innerHTML = "";
+      selected.innerText = "Logout";
+      document.querySelector('.status-color').style.backgroundColor = '#cea52f'; // Definir a cor de fundo para LOGOUT
+      // Redefina o tempo de início do status
+      statusStartTime = null;
+    } else if (!userReasonCodeId) {
+      selected.innerText = userState; // Definir o selected.innerText como o valor do userState se o userReasonCodeId não estiver definido
+      document.querySelector('.status-color').style.backgroundColor = '#cea52f'; // Definir a cor de fundo para outros estados sem reason code
+    } else if (selectedIndex === -1) {
+      selected.innerText = "RCODE NONE";
+      document.querySelector('.status-color').style.backgroundColor = '#cea52f'; // Definir a cor de fundo para outros estados com reason code
+    }
 
-		// Reset o tempo de início do status quando o agente trocar de status
-		statusStartTime = new Date();
+    // Reset o tempo de início do status quando o agente trocar de status
+    statusStartTime = new Date();
 
-		// Atualize as informações armazenadas
-		lastUserState = userState;
-		lastUserReasonCodeId = userReasonCodeId;
-	}
+    // Atualize as informações armazenadas
+    lastUserState = userState;
+    lastUserReasonCodeId = userReasonCodeId;
+  }
 }
-
 // Atualize a exibição do tempo a cada segundo
 setInterval(() => {
 	if (statusStartTime) {
