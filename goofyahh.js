@@ -9,6 +9,13 @@ let statusCheckInterval;
 let lastUserState;
 let lastUserReasonCodeId;
 
+const storedUsername = localStorage.getItem("username");
+const storedPassword = localStorage.getItem("password");
+
+if (storedUsername && storedPassword) {
+  loginUser(storedUsername, storedPassword);
+}
+
 // Adicione uma nova função para atualizar o status do usuário e o tempo
 function updateStatus(data) {
   // Obtenha o tempo de início do status atual
@@ -45,20 +52,10 @@ function updateStatus(data) {
       document.querySelector('.status-color').style.backgroundColor = '#5AF07B'; // Definir a cor de fundo para READY
     } else if (userState === "NOT_READY") {
       document.querySelector('.status-color').style.backgroundColor = '#BA0707'; // Definir a cor de fundo para NOT_READY
-    } else if (userState === "LOGOUT") {
-      // Limpe a lista de códigos de motivo
-      menuList.innerHTML = "";
-      selected.innerText = "Logout";
-      document.querySelector('.status-color').style.backgroundColor = '#cea52f'; // Definir a cor de fundo para LOGOUT
-      // Redefina o tempo de início do status
-      statusStartTime = null;
-    } else if (!userReasonCodeId) {
-      selected.innerText = userState; // Definir o selected.innerText como o valor do userState se o userReasonCodeId não estiver definido
-      document.querySelector('.status-color').style.backgroundColor = '#cea52f'; // Definir a cor de fundo para outros estados sem reason code
-    } else if (selectedIndex === -1) {
-      selected.innerText = "RCODE NONE";
-      document.querySelector('.status-color').style.backgroundColor = '#cea52f'; // Definir a cor de fundo para outros estados com reason code
-    }
+    } else {
+		selected.innerText = userState;
+		document.querySelector('.status-color').style.backgroundColor = '#cea52f';
+	}
 
     // Reset o tempo de início do status quando o agente trocar de status
     statusStartTime = new Date();
@@ -82,9 +79,10 @@ setInterval(() => {
 }, 1000);
 
 loginButton.addEventListener("click", function() {
-	let username = document.querySelector(".user").value;
-	let password = document.querySelector(".password").value;
 
+});
+
+function loginUser(username, password) {
 	$.get({
 		url: "https://sncfinesse1.totvs.com.br/finesse/api/User/" + username,
 		headers: {
@@ -95,7 +93,8 @@ loginButton.addEventListener("click", function() {
 
 			console.log("Request sucess.");
 			login.classList.toggle("close");
-
+			localStorage.setItem("username", username);
+			localStorage.setItem("password", password);
 			statusCheckInterval = setInterval(() => {
 				$.get({
 					url: "https://sncfinesse1.totvs.com.br/finesse/api/User/" + username,
@@ -107,14 +106,14 @@ loginButton.addEventListener("click", function() {
 					},
 					error: function(xhr, status, error) {
 						console.log("Status Check failed.");
-						console.log(xhr.status);
+						console.log(xhr.status);	
 						console.log(xhr.getResponseHeader("Content-Type"));
 					},
 					complete: function() {
 						console.log("STATUS CHECK DONE");
 					},
 				});
-			}, 5000);
+			}, 1000);
 			$.get({
 				url: "https://sncfinesse1.totvs.com.br/finesse/api/User/" + username + "/ReasonCodes?category=NOT_READY",
 				headers: {
@@ -152,8 +151,6 @@ loginButton.addEventListener("click", function() {
 					if (lastUserState === "READY") {
 						readyItem.classList.add("active");
 						selected.innerText = "Ready";
-					} else if (selectedIndex === -1) {
-						selected.innerText = "RCODE NONE";
 					}
 
 					// Event listeners dentro do callback de sucesso da API
@@ -248,4 +245,11 @@ loginButton.addEventListener("click", function() {
 			console.log("DONE");
 		},
 	});
+  }
+// Adicione o evento "click" do loginButton
+loginButton.addEventListener("click", function () {
+  let username = document.querySelector(".user").value;
+  let password = document.querySelector(".password").value;
+
+  loginUser(username, password);
 });
