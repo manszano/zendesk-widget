@@ -17,6 +17,15 @@
    <body>
     <!--COMEÇO-->
       <main class="zendesk-main">
+
+         <div class="error">
+            <img src="errorvg.svg" alt="">
+            <p>Error: Verify_your_credentials</p>
+            <div class="line"></div>
+               <img src="x.svg" alt="" class="close">
+         </div>
+
+
         <!--LOGIN LOGIN (NÃO USE FORM) LOGIN LOGIN-->
          <form class="login" onsubmit="event.preventDefault();">
             <div class="login-head">
@@ -110,7 +119,7 @@
          <div class="incall">
             <div class="incall-head">
                <div class="incall-head-info">
-                  <h3>Number</h3>
+                  <h3 id="phonenumber">Number</h3>
                   <div class="phone">
                      <div>
                         <img src="fill-phone.svg" alt="phone-icon">
@@ -132,13 +141,13 @@
                   <p>Account_Number</p>
                   <p>Post Call Survey</p>
                </div>
-               <div class="datas">
-                  <p class="phoneNumber">Phone Number</p>
-                  <p class="DNI">DN</p>
-                  <p class="queueName">Queue</p>
-                  <p class="rona">Rona Time</p>
-                  <p class="accountNumber">Account_Number</p>
-                  <p class="postCallSurvey">Post Call Survey</p>
+               <div id="datas">
+                  <p id="cv1">Phone Number</p>
+                  <p id="cv2">DN</p>
+                  <p id="cv3">Queue</p>
+                  <p id="cv4">Rona Time</p>
+                  <p id="queue">Account_Number</p>
+                  <p id="cv8">Post Call Survey</p>
                </div>
             </div>
          </div>
@@ -169,6 +178,8 @@
                </ul>
             </div>
          </div>
+         
+
          
       </main>
 
