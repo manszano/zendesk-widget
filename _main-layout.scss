@@ -2,8 +2,8 @@
 .zendesk-main{
     background-color: #FFFFFF;
     position: relative;
-    width: 30.7rem;
-    height: 35.2rem;
+    width: 25rem;
+    height: 30rem;
     border: 1px solid #5c5c5c;
     border-radius: 2px;
     color: #353535;
@@ -32,7 +32,7 @@
     justify-content: space-between;
     margin-top: 0.4rem; 
     .logo-totvs{
-        margin-right: 1.4rem;
+        margin-right: 0.7rem;
         transition: transform 0.5s ease;
         
         &:hover{
@@ -51,7 +51,7 @@
             outline: none;
         }
         #toggle-button{
-            width: 5.0rem;
+            width: 3rem;
             height: 2.85rem;
         }
     }
@@ -72,7 +72,7 @@
     justify-content: space-around;
     border: 1px solid #989898;
     border-radius: 2px;
-    width: 11.8rem;
+    width: 10.5rem;
     height: 2.0rem;
     span{
         font-size: .85rem;

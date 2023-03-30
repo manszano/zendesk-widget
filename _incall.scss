@@ -2,14 +2,15 @@
     z-index: 1;
     margin: 1px 1px;
     border: 01px solid #989898;
-    width: 29rem;
-    height: 16rem;
+    width: 23.3rem;
+    min-height: 6rem;
     border-radius: 2px;
     max-height: 16rem;
     overflow: auto;
     position: absolute;
     top: 5.5rem;
     left: 0.7rem;
+    display: none;
     h3{
         &:hover{
 
@@ -73,7 +74,7 @@
 }
 .icons{
     display: flex;
-    margin-left: 17.6rem;
+    margin-left: 10rem;
 
     div{
         display: flex;
@@ -108,9 +109,33 @@
             height: 1.5rem;
             width: 4.5rem;
             position: absolute;
-            content: 'Stop';
+            content: 'Hold';
         }
     }
+}
+
+.continue-icon{
+    background-color: #CDCDCD;
+    position: relative;
+    transition: .25s;
+    &:hover{
+    &::after{
+            
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #292928;
+        font-size: 12px;
+        border-radius: 2px;
+        color: white;
+        top: 2.3rem;
+        font-weight: 400;
+        height: 1.5rem;
+        width: 4.5rem;
+        position: absolute;
+        content: 'Continue';
+    }
+}   
 }
 
 .end-icon{
