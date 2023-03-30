@@ -4,6 +4,31 @@ const selected = document.querySelector('.selected');
 const dropdown = document.querySelectorAll('.dropdown');
 const timer = document.querySelector('#timer');
 
+const drop = document.querySelector('.end-icon');
+const hold = document.querySelector('.pause-icon');
+const contin = document.querySelector('.continue-icon');
+
+let phoneNumber = document.getElementById("cv6");
+let cpf = document.getElementById("cv2");
+let queue = document.getElementById("queue");
+let cti = document.getElementById("cv4");
+let cnpj = document.getElementById("cv3");
+let ticket = document.getElementById("cv8");
+let incall = document.querySelector(".incall");
+let phoneShow = document.querySelector("#phonenumber");
+let callTimer = document.querySelector("#callTimer")
+
+
+const titlePhoneNumber = document.getElementById("Tcv6");
+const titleCpf = document.getElementById("Tcv2");
+const titleQueue = document.getElementById("Tqueue");
+const titleCti = document.getElementById("Tcv4");
+const titleCnpj = document.getElementById("Tcv3");
+const titleTicket = document.getElementById("Tcv8");
+
+let u1;
+let p1;
+
 let statusStartTime;
 let statusCheckInterval;
 let lastUserState;
@@ -30,6 +55,7 @@ function updateStatus(data) {
     const options = menuList.querySelectorAll("li");
     let selectedIndex = -1;
 
+	
     for (let i = 0; i < options.length; i++) {
       const option = options[i];
       const id = option.getAttribute("data-id");
@@ -45,12 +71,27 @@ function updateStatus(data) {
 
     if (userState === "READY") {
       const readyItem = menuList.querySelector('[data-id="ready"]');
+		
       if (readyItem) {
         readyItem.classList.add("active");
       }
       selected.innerText = "Ready";
       document.querySelector('.status-color').style.backgroundColor = '#5AF07B'; // Definir a cor de fundo para READY
-    } else if (userState === "NOT_READY") {
+	  incall.style.display = "none"; 
+    }else if(userState === "TALKING"){
+		callData(u1,p1);
+		selected.innerText = userState;
+		incall.style.display = "block";
+		document.querySelector('.status-color').style.backgroundColor = '#cea52f';
+
+	} else if (userState === "NOT_READY") {
+		incall.style.display = "none";
+		if(data.getElementsByTagName("label").length > 0){
+			selected.innerText = data.getElementsByTagName("label")[0].textContent;
+		}else{
+			selected.innerText = userState;
+
+		}
       document.querySelector('.status-color').style.backgroundColor = '#BA0707'; // Definir a cor de fundo para NOT_READY
     } else {
 		selected.innerText = userState;
@@ -73,10 +114,11 @@ setInterval(() => {
 		const minutes = Math.floor(duration / 60);
 		const seconds = duration % 60;
 		timer.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+		callTimer.textContent = timer.textContent
 	} else {
 		timer.textContent = '0:00';
 	}
-}, 1000);
+}, 1100);
 
 loginButton.addEventListener("click", function() {
 
@@ -89,10 +131,14 @@ function loginUser(username, password) {
 			"Authorization": "Basic " + btoa(username + ":" + password),
 		},
 		success: function(data) {
+			u1 = username;
+			p1 = password;
+
 			updateStatus(data);
 
 			console.log("Request sucess.");
 			login.classList.toggle("close");
+
 			localStorage.setItem("username", username);
 			localStorage.setItem("password", password);
 			statusCheckInterval = setInterval(() => {
@@ -240,6 +286,7 @@ function loginUser(username, password) {
 			console.log("Request failed.");
 			console.log(xhr.status);
 			console.log(xhr.getResponseHeader("Content-Type"));
+			$
 		},
 		complete: function() {
 			console.log("DONE");
@@ -253,3 +300,136 @@ loginButton.addEventListener("click", function () {
 
   loginUser(username, password);
 });
+
+function callData(username,password) {
+	$.get({
+	  url: "https://sncfinesse1.totvs.com.br/finesse/api/User/" + username + "/Dialogs",
+	  headers: {
+		"Authorization": "Basic " + btoa(username + ":" + password),
+	  },
+	  success: function (data) {
+	
+	  const callVariable2Value = $(data).find("CallVariable").filter(function() {
+      return $(this).find("name").text() === "callVariable2";
+	  }).find("value").text();
+	  const callVariable3Value = $(data).find("CallVariable").filter(function() {
+		return $(this).find("name").text() === "callVariable3";
+		}).find("value").text();
+		const callVariable4Value = $(data).find("CallVariable").filter(function() {
+		return $(this).find("name").text() === "callVariable4";
+		}).find("value").text();
+		const callVariable8Value = $(data).find("CallVariable").filter(function() {
+		return $(this).find("name").text() === "callVariable8";
+		}).find("value").text();
+		const callVariable6Value = $(data).find("CallVariable").filter(function() {
+		return $(this).find("name").text() === "callVariable8";
+		}).find("value").text();
+		const queueValue = $(data).find('queueName').text();
+		const callId = $(data).find('uri').text();
+
+		checkAndHideIfEmpty(callVariable6Value, phoneNumber, titlePhoneNumber);
+		checkAndHideIfEmpty(callVariable2Value, cpf, titleCpf);
+		checkAndHideIfEmpty(callVariable3Value, cnpj, titleCnpj);
+		checkAndHideIfEmpty(callVariable4Value, cti, titleCti);
+		checkAndHideIfEmpty(callVariable8Value, ticket, titleTicket);
+		checkAndHideIfEmpty(queueValue, queue, titleQueue);
+
+		phoneNumber.textContent = callVariable6Value;		
+		phoneShow.textContent = callVariable6Value;	
+		cpf.textContent = callVariable2Value;
+		cnpj.textContent = callVariable3Value;
+		cti.textContent = callVariable4Value;
+		ticket.textContent = callVariable8Value;
+		queue.textContent = queueValue;
+
+		drop.addEventListener('click', function (){
+			$.ajax({
+				url: "https://sncfinesse1.totvs.com.br" + callId,
+				type: "PUT",
+				headers: {
+					"Authorization": "Basic " + btoa(username + ":" + password),
+					"Content-Type": "application/xml"
+				},
+				data: `<Dialog>
+				<targetMediaAddress>5999</targetMediaAddress>
+				<requestedAction>DROP</requestedAction>
+				</Dialog>`,
+				success: function() {
+					console.log("Chamada encerrada com sucesso.");
+				},
+				error: function(xhr, status, error) {
+					console.log("Falha ao encerrar a chamada.");
+					console.log(xhr.status);
+					console.log(xhr.getResponseHeader("Content-Type"));
+				}
+			});
+		});
+
+		hold.addEventListener('click', function (){
+			$.ajax({
+				url: "https://sncfinesse1.totvs.com.br" + callId,
+				type: "PUT",
+				headers: {
+					"Authorization": "Basic " + btoa(username + ":" + password),
+					"Content-Type": "application/xml"
+				},
+				data: `<Dialog>
+				<targetMediaAddress>5999</targetMediaAddress>
+				<requestedAction>HOLD</requestedAction>
+				</Dialog>`,
+				success: function() {
+					console.log("Chamada colocada em espera.");
+				},
+				error: function(xhr, status, error) {
+					console.log("Falha ao colocar a chamada em espera.");
+					console.log(xhr.status);
+					console.log(xhr.getResponseHeader("Content-Type"));
+				}
+			});
+		});
+
+		hold.addEventListener('click', function (){
+			$.ajax({
+				url: "https://sncfinesse1.totvs.com.br" + callId,
+				type: "PUT",
+				headers: {
+					"Authorization": "Basic " + btoa(username + ":" + password),
+					"Content-Type": "application/xml"
+				},
+				data: `<Dialog>
+				<targetMediaAddress>5999</targetMediaAddress>
+				<requestedAction>HOLD</requestedAction>
+				</Dialog>`,
+				success: function() {
+					console.log("Chamada colocada em espera.");
+				},
+				error: function(xhr, status, error) {
+					console.log("Falha ao colocar a chamada em espera.");
+					console.log(xhr.status);
+					console.log(xhr.getResponseHeader("Content-Type"));
+				}
+			});
+		});
+		
+	  },
+	  error: function (xhr, status, error) {
+		console.log("Failed to get call data.");
+		console.log(xhr.status);
+		console.log(xhr.getResponseHeader("Content-Type"));
+		
+	  },
+	});
+  }
+
+  function checkAndHideIfEmpty(value, contentElement, titleElement) {
+	if (value === "") {
+		contentElement.style.display = "none";
+		titleElement.style.display = "none";
+	} else {
+		contentElement.style.display = "";
+		titleElement.style.display = "";
+	}
+  }
+
+  
+
