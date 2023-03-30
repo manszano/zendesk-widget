@@ -13,8 +13,8 @@
 .zendesk-main {
   background-color: #FFFFFF;
   position: relative;
-  width: 30.7rem;
-  height: 35.2rem;
+  width: 25rem;
+  height: 30rem;
   border: 1px solid #5c5c5c;
   border-radius: 2px;
   color: #353535;
@@ -45,7 +45,7 @@
   margin-top: 0.4rem;
 }
 .main-nav .logo-totvs {
-  margin-right: 1.4rem;
+  margin-right: 0.7rem;
   transition: transform 0.5s ease;
 }
 .main-nav .logo-totvs:hover {
@@ -62,7 +62,7 @@
   outline: none;
 }
 .main-nav .btn-aside #toggle-button {
-  width: 5rem;
+  width: 3rem;
   height: 2.85rem;
 }
 .main-nav #toggle-button {
@@ -81,7 +81,7 @@
   justify-content: space-around;
   border: 1px solid #989898;
   border-radius: 2px;
-  width: 11.8rem;
+  width: 10.5rem;
   height: 2rem;
 }
 .select span {
@@ -125,7 +125,7 @@ section {
 .dropdown {
   position: relative;
   margin: auto;
-  margin-left: 7.5rem;
+  margin-left: 6.5rem;
 }
 .dropdown button {
   margin-right: 1rem;
@@ -167,7 +167,7 @@ section {
   border-radius: 0 0 0.2rem 0.2rem;
   position: absolute;
   top: 2.42em;
-  width: 11.8rem;
+  width: 10.5rem;
   height: 22rem;
   overflow: hidden;
   overflow-y: scroll;
@@ -354,7 +354,7 @@ section {
   position: absolute;
   top: 2.42em;
   background-color: #ffffff;
-  width: 11.8rem;
+  width: 10.8rem;
   height: 22rem;
   display: none;
   flex-direction: column;
@@ -364,12 +364,13 @@ section {
   border: 1px solid #989898;
   border-radius: 2px;
   margin-top: 0.45rem;
+  margin-left: -1.55rem;
   z-index: 1000;
 }
 
 #display {
   box-sizing: border-box;
-  width: 11.8rem;
+  width: 10.8rem;
   height: 5rem;
   margin-bottom: 10px;
   background-color: #ffffff;
@@ -406,7 +407,7 @@ section {
 
 .clear {
   grid-column: 1/4;
-  width: 11.8rem;
+  width: 10.8rem;
   cursor: pointer;
   background-color: #ebebeb;
   color: #353535;
@@ -424,7 +425,7 @@ section {
 
 .call {
   grid-column: 1/4;
-  width: 11.8rem;
+  width: 10.8rem;
   cursor: pointer;
   background-color: #45d164;
   color: #ffffff;
@@ -449,14 +450,15 @@ section {
   z-index: 1;
   margin: 1px 1px;
   border: 1px solid #989898;
-  width: 29rem;
-  height: 16rem;
+  width: 23.3rem;
+  min-height: 6rem;
   border-radius: 2px;
   max-height: 16rem;
   overflow: auto;
   position: absolute;
   top: 5.5rem;
   left: 0.7rem;
+  display: none;
 }
 .incall-head {
   z-index: 2;
@@ -513,7 +515,7 @@ section {
 
 .icons {
   display: flex;
-  margin-left: 17.6rem;
+  margin-left: 10rem;
 }
 .icons div {
   display: flex;
@@ -548,7 +550,28 @@ section {
   height: 1.5rem;
   width: 4.5rem;
   position: absolute;
-  content: "Stop";
+  content: "Hold";
+}
+
+.continue-icon {
+  background-color: #CDCDCD;
+  position: relative;
+  transition: 0.25s;
+}
+.continue-icon:hover::after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #292928;
+  font-size: 12px;
+  border-radius: 2px;
+  color: white;
+  top: 2.3rem;
+  font-weight: 400;
+  height: 1.5rem;
+  width: 4.5rem;
+  position: absolute;
+  content: "Continue";
 }
 
 .end-icon {
@@ -601,15 +624,15 @@ section {
   background-color: #ffffff;
   width: 100%;
   height: 100%;
-  padding: 3.5rem;
+  padding: 2.7rem 3.5rem;
 }
 
 .login-head {
-  margin-left: 0.3rem;
+  margin-left: -1rem;
   display: flex;
   border-bottom: 0.2rem solid #000000;
   align-items: center;
-  width: 23rem;
+  width: 20rem;
   justify-content: space-between;
   color: #000000;
   font-weight: 600;
@@ -633,7 +656,7 @@ section {
   border: 1px solid #BABABA;
   border-radius: 2px;
   text-indent: 7px;
-  width: 23rem;
+  width: 20rem;
 }
 .login-form input:focus {
   border-color: #353535;
@@ -647,7 +670,7 @@ section {
   color: #ffffff;
   font-weight: 500;
   font-size: 16px;
-  width: 23rem;
+  width: 20rem;
   cursor: pointer;
   transition: 0.25s ease;
 }
@@ -658,10 +681,11 @@ section {
 }
 
 .right-foot-creep {
-  width: 23rem;
+  width: 20rem;
   height: 0.2rem;
   border-top: 0.2rem solid #000000;
-  margin-left: 0.3rem;
+  margin-left: -1rem;
+  margin-top: 8px;
 }
 
 .griddy {
