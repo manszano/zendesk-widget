@@ -16,17 +16,14 @@
    </head>
    <body>
     <!--COMEÇO-->
-      <main class="zendesk-main">
-
-         <div class="error">
-            <img src="errorvg.svg" alt="">
-            <p>Error: Verify_your_credentials</p>
-            <div class="line"></div>
-               <img src="x.svg" alt="" class="close">
-         </div>
-
-
-        <!--LOGIN LOGIN (NÃO USE FORM) LOGIN LOGIN-->
+      <main class="zendesk-main">         
+         <div class="loading">
+            <img src="reverse-totvs.svg" alt="">
+            
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+          </div>
+        </div>
          <form class="login" onsubmit="event.preventDefault();">
             <div class="login-head">
                <p>Log In</p>
@@ -119,7 +116,7 @@
          <div class="incall">
             <div class="incall-head">
                <div class="incall-head-info">
-                  <h3 id="phonenumber">Number</h3>
+                  <h3 class="phonenumber">Number</h3>
                   <div class="phone">
                      <div>
                         <img src="fill-phone.svg" alt="phone-icon">
@@ -183,9 +180,6 @@
 
          
       </main>
-
-
-      <button class="btn">yes sir</button>
 
       <script src="jquery.js"></script>
       <script src="search.js"></script>
