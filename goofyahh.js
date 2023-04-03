@@ -4,6 +4,7 @@ const selected = document.querySelector('.selected');
 const dropdown = document.querySelectorAll('.dropdown');
 const timer = document.querySelector('#timer');
 
+
 const drop = document.querySelector('.end-icon');
 const hold = document.querySelector('.pause-icon');
 const contin = document.querySelector('.continue-icon');
@@ -15,7 +16,7 @@ let cti = document.getElementById("cv4");
 let cnpj = document.getElementById("cv3");
 let ticket = document.getElementById("cv8");
 let incall = document.querySelector(".incall");
-let phoneShow = document.querySelector("#phonenumber");
+let phoneShow = document.querySelector(".phonenumber");
 let callTimer = document.querySelector("#callTimer")
 
 
@@ -28,6 +29,7 @@ const titleTicket = document.getElementById("Tcv8");
 
 let u1;
 let p1;
+let ramal;
 
 let statusStartTime;
 let statusCheckInterval;
@@ -133,7 +135,7 @@ function loginUser(username, password) {
 		success: function(data) {
 			u1 = username;
 			p1 = password;
-
+			ramal = $(data).find('extension').text();			
 			updateStatus(data);
 
 			console.log("Request sucess.");
@@ -374,7 +376,7 @@ function callData(username,password) {
 					"Content-Type": "application/xml"
 				},
 				data: `<Dialog>
-				<targetMediaAddress>5999</targetMediaAddress>
+				<targetMediaAddress>${ramal}</targetMediaAddress>
 				<requestedAction>HOLD</requestedAction>
 				</Dialog>`,
 				success: function() {
@@ -397,7 +399,7 @@ function callData(username,password) {
 					"Content-Type": "application/xml"
 				},
 				data: `<Dialog>
-				<targetMediaAddress>5999</targetMediaAddress>
+				<targetMediaAddress>${ramal}</targetMediaAddress>
 				<requestedAction>HOLD</requestedAction>
 				</Dialog>`,
 				success: function() {
@@ -405,6 +407,29 @@ function callData(username,password) {
 				},
 				error: function(xhr, status, error) {
 					console.log("Falha ao colocar a chamada em espera.");
+					console.log(xhr.status);
+					console.log(xhr.getResponseHeader("Content-Type"));
+				}
+			});
+		});
+
+		contin.addEventListener('click', function (){
+			$.ajax({
+				url: "https://sncfinesse1.totvs.com.br" + callId,
+				type: "PUT",
+				headers: {
+					"Authorization": "Basic " + btoa(username + ":" + password),
+					"Content-Type": "application/xml"
+				},
+				data: `<Dialog>
+				<targetMediaAddress>${ramal}</targetMediaAddress>
+				<requestedAction>RETRIEVE</requestedAction>
+				</Dialog>`,
+				success: function() {
+					console.log("Chamada colocada em espera.");
+				},
+				error: function(xhr, status, error) {
+					console.log("Falha em continuar a chamada");
 					console.log(xhr.status);
 					console.log(xhr.getResponseHeader("Content-Type"));
 				}

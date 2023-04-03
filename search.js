@@ -19,7 +19,3 @@ function searchList() {
 
 const myDiv = document.querySelector('.call-event');
 const myButton = document.querySelector('.btn');
-
-myButton.addEventListener('click', () => {
-  myDiv.classList.add('show');
-});
