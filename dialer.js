@@ -1,6 +1,5 @@
 const toggleButton = document.querySelector('#toggle-button');
 const dialer = document.querySelector('.dialer');
-
 toggleButton.addEventListener('click', function() {
   dialer.classList.toggle('opener');
 });
@@ -25,6 +24,23 @@ function addToDisplay(num) {
         }
       }
     });
+    //loading
+    function move() {
+      var load = document.querySelector('.loading')
+      var elem = document.querySelector(".progress-bar");
+      var width = 0;
+      var id = setInterval(frame, 10);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          load.classList.add('none')
+        } else {
+          width++;
+          elem.style.width = width + "%";
+        }
+      }
+    }
+    setTimeout(move, 500);
   
 
 
