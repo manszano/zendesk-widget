@@ -1,4 +1,49 @@
 
+.progress-container {
+    width: 60%;
+    background-color: #231616;
+    border: 1px solid #ffffff;
+    border-radius: 100px;
+    padding: 2px;
+    margin-top: 2rem;
+  }     
+  
+  .progress-bar {
+    height: 10px;
+    background-color:#ffffff;
+    width: 0%;
+    border-radius: 100px;
+  }
+
+  .loading{
+    background-color: #231616;
+    position: absolute;
+    z-index: 999999;
+    width: 25rem;
+    height: 30rem;
+    border: 1px solid #231616;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    .title{
+        font-weight: 700;
+        font-size: 16px;
+    }
+    p{
+     font-weight: 400;
+     color: #FFFFFF;
+     margin-top: 10px;
+     font-size: 14px;
+    }
+    img{
+        margin-top: -173px;
+        margin-bottom: 100px;
+    }
+}
+
 .zendesk-main{
     background-color: #FFFFFF;
     position: relative;
@@ -58,7 +103,7 @@
     #toggle-button{
         background-color: #ffffff;
         border: none;
-        transition: 100ms;
+        transition: 0.2s ease;
         &:hover{
             background-color: #EDEDED;
             img{
@@ -71,7 +116,7 @@
 
     justify-content: space-around;
     border: 1px solid #989898;
-    border-radius: 2px;
+    border-radius: 3px;
     width: 10.5rem;
     height: 2.0rem;
     span{
@@ -108,4 +153,8 @@ section{
 .back-img{
     margin: 3.8rem 3.7rem;
     
+}
+
+.none{
+    display: none;
 }

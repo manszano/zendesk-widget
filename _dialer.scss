@@ -14,10 +14,14 @@
   justify-content: center;
   padding: 20px;
   border: 1px solid #989898;
-  border-radius: 2px;
+  border-radius: 3px;
   margin-top: 0.45rem;
   margin-left: -1.55rem;
   z-index: 1000;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition:all 0.5s ease-in-out;
+  -o-transition:all 0.5s ease-in-out;
+  transition:all 0.5s ease-in-out;
   }
   
   #display {
