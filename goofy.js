@@ -86,6 +86,12 @@ function updateStatus(data) {
 		incall.style.display = "block";
 		document.querySelector('.status-color').style.backgroundColor = '#cea52f';
 
+	}else if(userState === "HOLD"){
+		callData(u1,p1);
+		selected.innerText = userState;
+		incall.style.display = "block";
+		document.querySelector('.status-color').style.backgroundColor = '#cea52f';
+
 	} else if (userState === "NOT_READY") {
 		incall.style.display = "none";
 		if(data.getElementsByTagName("label").length > 0){
@@ -94,7 +100,9 @@ function updateStatus(data) {
 			selected.innerText = userState;
 
 		}
-      document.querySelector('.status-color').style.backgroundColor = '#BA0707'; // Definir a cor de fundo para NOT_READY
+
+      document.querySelector('.status-color').style.backgroundColor = '#BA0707';
+
     } else {
 		selected.innerText = userState;
 		document.querySelector('.status-color').style.backgroundColor = '#cea52f';
@@ -218,7 +226,6 @@ function loginUser(username, password) {
 
 						options.forEach(option => {
 							option.addEventListener('click', () => {
-								// Reset o tempo de início do status quando o agente trocar de status
 								statusStartTime = new Date();
 
 								selected.innerText = option.innerText;
