@@ -9,6 +9,7 @@ const drop = document.querySelector('.end-icon');
 const hold = document.querySelector('.pause-icon');
 const contin = document.querySelector('.continue-icon');
 
+let callBtn = document.querySelector(".call");
 let phoneNumber = document.getElementById("cv6");
 let cpf = document.getElementById("cv2");
 let queue = document.getElementById("queue");
@@ -17,7 +18,7 @@ let cnpj = document.getElementById("cv3");
 let ticket = document.getElementById("cv8");
 let incall = document.querySelector(".incall");
 let phoneShow = document.querySelector(".phonenumber");
-let callTimer = document.querySelector("#callTimer")
+let callTimer = document.querySelector("#callTimer");
 
 
 const titlePhoneNumber = document.getElementById("Tcv6");
@@ -103,7 +104,7 @@ function updateStatus(data) {
 
       document.querySelector('.status-color').style.backgroundColor = '#BA0707';
 
-    } else {
+    } else {	
 		selected.innerText = userState;
 		document.querySelector('.status-color').style.backgroundColor = '#cea52f';
 	}
@@ -134,6 +135,7 @@ loginButton.addEventListener("click", function() {
 
 });
 
+
 function loginUser(username, password) {
 	$.get({
 		url: "https://sncfinesse1.totvs.com.br/finesse/api/User/" + username,
@@ -151,6 +153,33 @@ function loginUser(username, password) {
 
 			localStorage.setItem("username", username);
 			localStorage.setItem("password", password);
+
+			callBtn.addEventListener('click', function(){
+				let dialNumber = document.getElementById("display").value;
+				$.post({
+					url: "https://sncfinesse1.totvs.com.br/finesse/api/User/" + username + "/Dialogs",
+					headers: {
+						"Authorization": "Basic " + btoa(username + ":" + password),
+					},
+					dataType: "xml",
+					contentType:"application/xml",
+					data: `<Dialog>
+					<requestedAction>MAKE_CALL</requestedAction>
+					<fromAddress>${ramal}</fromAddress>
+					<toAddress>${dialNumber}</toAddress>
+				 </Dialog>`,
+
+					success: function(){
+						console.log("Chamada realizada com sucesso.");
+					},
+					error: function(xhr, status, error){
+						console.log("Falha ao encerrar a chamada.");
+						console.log(xhr.status);
+						console.log(xhr.getResponseHeader("Content-Type"));
+					}
+				})
+			});
+
 			statusCheckInterval = setInterval(() => {
 				$.get({
 					url: "https://sncfinesse1.totvs.com.br/finesse/api/User/" + username,
@@ -209,7 +238,7 @@ function loginUser(username, password) {
 						selected.innerText = "Ready";
 					}
 
-					// Event listeners dentro do callback de sucesso da API
+					// Event listeners  
 					const options = menuList.querySelectorAll("li");
 
 					dropdown.forEach(dropdown => {
@@ -430,7 +459,7 @@ function callData(username,password) {
 				},
 				data: `<Dialog>
 				<targetMediaAddress>${ramal}</targetMediaAddress>
-				<requestedAction>RETRIEVE</requestedAction>
+				<requestedAction></requestedAction>
 				</Dialog>`,
 				success: function() {
 					console.log("Chamada colocada em espera.");
@@ -462,6 +491,8 @@ function callData(username,password) {
 		titleElement.style.display = "";
 	}
   }
+
+
 
   
 
