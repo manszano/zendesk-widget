@@ -414,7 +414,6 @@ section {
   margin-top: 0.45rem;
   margin-left: -1.55rem;
   z-index: 1000;
-  transition: all 0.5s ease-in-out;
 }
 
 #display {
