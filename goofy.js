@@ -11,7 +11,7 @@ const contin = document.querySelector('.continue-icon');
 
 let phoneNumber = document.getElementById("cv6");
 let cpf = document.getElementById("cv2");
-let queue = document.getElmentById("queue");
+let queue = document.getElementById("queue");
 let cti = document.getElementById("cv4");
 let cnpj = document.getElementById("cv3");
 let ticket = document.getElementById("cv8");
