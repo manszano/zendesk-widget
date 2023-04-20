@@ -1,8 +1,19 @@
-const toggleButton = document.querySelector('#toggle-button');
+const toggleButton1 = document.querySelector('#toggle-button');
 const dialer = document.querySelector('.dialer');
-toggleButton.addEventListener('click', function() {
-  dialer.classList.toggle('opener');
+const dropdown2 = document.querySelector('.dropdown');
+const dropdown11 = document.querySelector('.menu');
+const dropdown22 = document.querySelector('.select');
+const caret = dropdown2.querySelector('.caret');
+toggleButton1.addEventListener('click', function() {
+dialer.classList.toggle('opener');
+if (dropdown11.classList.contains('menu-open')) {
+  dropdown11.classList.remove('menu-open')
+  dropdown22.classList.remove('select-clicked')
+  caret.classList.remove('caret-rotate');
+}
+
 });
+
 
 function addToDisplay(num) {
     var display = document.getElementById("display");
@@ -12,18 +23,8 @@ function addToDisplay(num) {
   function clearDisplay() {
     var display = document.getElementById("display");
     var value = display.value;
-    display.value = value.substring(0, value.length - 1);
+    display.value = "";
   }
-  document.addEventListener("keydown", function(event) {
-    if (document.activeElement === document.getElementById("display")) {
-        var key = event.key;
-        if (/\d/.test(key) || key == "*" || key == "#") {
-          addToDisplay(key);
-        } else if (key == "Backspace") {
-          clearDisplay();
-        }
-      }
-    });
     //loading
     function move() {
       var load = document.querySelector('.loading')
