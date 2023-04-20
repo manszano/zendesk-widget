@@ -55,12 +55,12 @@
 }
 
 .zendesk-main {
-  background-color: #FFFFFF;
+  background-color: #f8f8f8;
   position: relative;
   width: 25rem;
   height: 30rem;
   border: 1px solid #5c5c5c;
-  border-radius: 2px;
+  border-radius: 4px;
   color: #353535;
   /* !!CASO QUEIRA ADCIONAR A ILUSTRAÇÃO NO FUNDO!!
   :background-image: url('../../svg/main-ilustration.svg');
@@ -69,8 +69,8 @@
 }
 
 .head {
-  margin: 0.35rem 1.5rem 0.35rem;
-  background-color: #FFFFFF;
+  margin: 0.35rem 0.7rem 0.35rem;
+  background-color: #f8f8f8;
   display: flex;
   justify-content: space-between;
 }
@@ -79,11 +79,11 @@
 }
 
 .main-nav {
-  background-color: #ffffff;
+  background-color: #FDFDFD;
   z-index: 3;
   display: flex;
   height: 3rem;
-  border: solid #8c8c8c;
+  border: solid #ADADAD;
   border-width: 1px 0;
   justify-content: space-between;
   margin-top: 0.4rem;
@@ -110,12 +110,13 @@
   height: 2.85rem;
 }
 .main-nav #toggle-button {
-  background-color: #ffffff;
+  background-color: #fdfdfd;
   border: none;
   transition: 0.2s ease;
 }
 .main-nav #toggle-button:hover {
   background-color: #EDEDED;
+  cursor: pointer;
 }
 .main-nav #toggle-button:hover img {
   fill: #353535;
@@ -124,23 +125,24 @@
 .select {
   justify-content: space-around;
   border: 1px solid #989898;
-  border-radius: 3px;
-  width: 10.5rem;
+  border-radius: 20px;
+  width: 12rem;
   height: 2rem;
 }
 .select span {
   font-size: 0.85rem;
-  max-width: 90px;
-  max-height: 20px;
-  margin: auto;
-  text-overflow: ellipsis;
+  max-width: 130px;
+  max-height: 62px;
+  margin: 5px;
   overflow: hidden;
   white-space: nowrap;
+  color: #353535;
   color: #353535;
 }
 .select p {
   font-size: 12px;
   margin: auto;
+  margin-right: 0.5rem;
   color: #353535;
 }
 
@@ -173,10 +175,10 @@ section {
 .dropdown {
   position: relative;
   margin: auto;
-  margin-left: 6.5rem;
+  margin-left: 4.8rem;
 }
 .dropdown button {
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -211,18 +213,19 @@ section {
 .menu {
   list-style: none;
   background: #ffffff;
-  border: 1px solid #989898;
-  border-radius: 0 0 0.2rem 0.2rem;
+  border: 1px solid #ADADAD;
+  border-radius: 0 0 6px 6px;
   position: absolute;
   top: 2.42em;
-  width: 10.5rem;
-  height: 22rem;
+  width: 12rem;
+  height: 21rem;
   overflow: hidden;
   overflow-y: scroll;
   opacity: 0;
   display: none;
   z-index: 1;
   scroll-behavior: smooth;
+  border-top: transparent;
   overflow: auto;
   overflow-x: hidden;
 }
@@ -256,10 +259,12 @@ section {
   position: sticky;
   font-size: 12px;
   top: 0.8rem;
-  width: 11.8rem;
-  height: 1.2rem;
-  margin: 0.8rem -0.08rem;
-  text-indent: 10px;
+  width: 10.5rem;
+  height: 1.5rem;
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  text-indent: 23px;
   border: 1px solid #b8b7b7;
 }
 .search-style:focus {
@@ -268,11 +273,18 @@ section {
 }
 
 .search-style::-moz-placeholder {
-  text-indent: 10px;
+  text-indent: 23 px;
 }
 
 .search-style::placeholder {
-  text-indent: 10px;
+  text-indent: 23 px;
+}
+
+.search-style {
+  background-image: url("search1.svg");
+  background-repeat: no-repeat;
+  background-size: 14px 14px;
+  background-position: 4px;
 }
 
 .call-event {
@@ -403,28 +415,29 @@ section {
   top: 2.42em;
   background-color: #ffffff;
   width: 10.8rem;
-  height: 22rem;
+  height: 21rem;
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  border: 1px solid #989898;
-  border-radius: 3px;
+  padding: 5px;
+  border: 1px solid #ADADAD;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
   margin-top: 0.45rem;
-  margin-left: -1.55rem;
+  margin-left: -1.2rem;
   z-index: 1000;
 }
 
 #display {
   box-sizing: border-box;
-  width: 10.8rem;
-  height: 5rem;
-  margin-bottom: 10px;
+  width: 10.2rem;
+  height: 1.4rem;
+  margin-bottom: 4px;
   background-color: #ffffff;
   font-size: 12px;
-  border: 1px solid #b8b7b7;
-  border-radius: 2px;
+  border: 1px solid #ADADAD;
+  border-radius: 3px;
   color: #353535;
   text-align: center;
 }
@@ -455,12 +468,12 @@ section {
 
 .clear {
   grid-column: 1/4;
-  width: 10.8rem;
+  width: 10.2rem;
   cursor: pointer;
-  background-color: #ebebeb;
+  background-color: #EAEAEA;
   color: #353535;
-  border: 1px solid #BABABA;
-  border-radius: 2px;
+  border: 1px solid #ADADAD;
+  border-radius: 3px;
   transition: 0.2s ease;
 }
 .clear:hover {
@@ -470,20 +483,23 @@ section {
   outline: none;
   border-color: #727272;
 }
+.clear img {
+  margin-top: 4px;
+}
 
 .call {
   grid-column: 1/4;
-  width: 10.8rem;
+  width: 10.2rem;
   cursor: pointer;
   background-color: #45d164;
   color: #ffffff;
   border: 1px solid #BABABA;
-  border-radius: 2px;
+  border-radius: 3px;
   height: 2rem;
   transition: 0.2s ease;
 }
 .call:hover {
-  background-color: #079c27;
+  background-color: #97f48f;
 }
 .call:focus {
   outline: none;
