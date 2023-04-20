@@ -6,10 +6,10 @@
 .dropdown{
     position: relative;
     margin: auto;
-    margin-left: 6.5rem;
+    margin-left: 4.8rem;
     button{
         
-        margin-right: 1.0rem;
+        margin-right: 0.5rem;
         border: none;
         background-color: transparent;
         cursor: pointer;
@@ -45,18 +45,19 @@
 .menu{
     list-style: none;
     background: #ffffff;
-    border: 1px solid #989898;
-    border-radius: 0 0 .2rem .2rem;
+    border: 1px solid #ADADAD;
+    border-radius: 0 0 6px 6px;
     position: absolute;
     top: 2.42em;
-    width: 10.5rem;
-    height: 22rem;
+    width: 12rem;
+    height: 21rem;
     overflow: hidden;
     overflow-y: scroll;
     opacity: 0;
     display: none;
     z-index: 1;
     scroll-behavior: smooth;
+    border-top: transparent;
     overflow: auto;
     overflow-x: hidden;
 }
@@ -87,11 +88,14 @@
     position: sticky;
     font-size: 12px;
     top: .8rem;
-    width: 11.8rem;
-    height: 1.2rem;
-    margin: 0.8rem -0.08rem;
-    text-indent: 10px;
+    width: 10.5rem;
+    height: 1.5rem;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    text-indent: 23px;
     border: 01px solid #b8b7b7;
+    
     &:focus{
         outline: none;
         border-color: #727272;
@@ -100,5 +104,11 @@
 
 }
 .search-style::placeholder {
-    text-indent: 10px;
+    text-indent: 23 px;
   }
+  .search-style{
+    background-image: url('search1.svg');
+    background-repeat: no-repeat; 
+    background-size: 14px 14px;
+    background-position: 4px;
+    }  
