@@ -1,4 +1,5 @@
 ## Zendesk Widget
+![image](https://github.com/user-attachments/assets/4e0e95db-6c7e-4357-842b-d8acea56a88b)
 
 Este projeto é um plugin para o Zendesk voltado para usuários da Cisco, permitindo uma integração completa entre as duas plataformas.
 
