@@ -1,5 +1,23 @@
 ## Zendesk Widget
-É um projeto de um plugin para zendesk voltado para usuário da cisco,
-onde o usuário pode receber chamadas e atender direto pelo zendesk, também é possivel ver informações da chamada
-fazer ligações e fazer login na cisco, tudo usando a API do finesse e um interface agradavel
-Todo o Projeto é nesse formato, em um arquivo só, seguindo a orientação da documentação do Finesse.
+
+Este projeto é um plugin para o Zendesk voltado para usuários da Cisco, permitindo uma integração completa entre as duas plataformas.
+
+### Funcionalidades
+
+- **Recebimento e atendimento de chamadas**: Os usuários podem receber e atender chamadas diretamente pelo Zendesk.
+- **Visualização de informações da chamada**: Informações detalhadas sobre as chamadas são exibidas na interface.
+- **Realização de chamadas**: Além de receber, os usuários também podem fazer chamadas usando o plugin.
+- **Login na Cisco**: O plugin permite que os usuários façam login na Cisco através da interface do Zendesk.
+- **Interface amigável**: A interface foi projetada para ser intuitiva e fácil de usar, proporcionando uma experiência agradável ao usuário.
+
+### Integração com Cisco Finesse
+
+O plugin utiliza a API do Cisco Finesse para realizar todas as operações relacionadas às chamadas, como login, gerenciamento de chamadas e exibição de informações em tempo real.
+
+### Estrutura do Projeto
+
+Todo o projeto é implementado em um único arquivo, conforme as orientações da documentação do Zendesk.
+
+---
+
+> **Nota**: Este projeto foi desenvolvido seguindo as melhores práticas de integração entre Zendesk e Cisco, garantindo uma experiência fluida para os usuários. 
