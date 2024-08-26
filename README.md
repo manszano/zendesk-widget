@@ -20,4 +20,4 @@ Todo o projeto é implementado em um único arquivo, conforme as orientações d
 
 ---
 
-> **Nota**: Este projeto foi desenvolvido seguindo as melhores práticas de integração entre Zendesk e Cisco, garantindo uma experiência fluida para os usuários. 
+> **Nota**: Este projeto foi desenvolvido seguindo as melhores práticas de integração entre Zendesk e Cisco, por isso foi optado o js vanilla, sendo que ambos cisco e zendesk não recomendam utilização de bibliotecas para o desenvolvimento dessas integrações. 
