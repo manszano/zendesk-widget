@@ -16,8 +16,8 @@ O plugin utiliza a API do Cisco Finesse para realizar todas as operações relac
 
 ### Estrutura do Projeto
 
-Todo o projeto é **implementado em um único arquivo**,** conforme as orientações da documentação do Zendesk**.
+Todo o projeto é **implementado em um único arquivo**, **conforme as orientações da documentação do Zendesk**.
 
 ---
 
-> **Nota**: Este projeto foi desenvolvido seguindo as melhores práticas de integração entre Zendesk e Cisco, por isso foi optado o** js vanilla**, sendo que ambos cisco e zendesk não recomendam utilização de bibliotecas para o desenvolvimento dessas integrações. 
+> **Nota**: Este projeto foi desenvolvido seguindo as melhores práticas de integração entre Zendesk e Cisco, por isso foi optado o **js vanilla**, sendo que ambos cisco e zendesk não recomendam utilização de bibliotecas para o desenvolvimento dessas integrações. 
