@@ -9,7 +9,7 @@ Este projeto é um plugin para o Zendesk voltado para usuários da Cisco, permit
 - **Visualização de informações da chamada**: Informações detalhadas sobre as chamadas são exibidas na interface.
 - **Realização de chamadas**: Além de receber, os usuários também podem fazer chamadas usando o plugin.
 - **Login na Cisco**: O plugin permite que os usuários façam login na Cisco através da interface do Zendesk.
-- **Interface amigável**: A interface foi projetada para ser intuitiva e fácil de usar, proporcionando uma experiência agradável ao usuário.
+- **Interface amigável**: A interface foi projetada para ser intuitiva.
 
 ### Integração com Cisco Finesse
 
